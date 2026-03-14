@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grade Checker</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2c3e50">
+
+<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+padding:40px;
+background:plum;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+width:300px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+padding:10px;
+width:80%;
+margin-top:10px;
+}
+
+button{
+padding:10px 20px;
+margin-top:15px;
+background:#2c3e50;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Grade Checker</h2>
+
+<p>Enter your grade</p>
+
+<input type="number" id="grade" placeholder="Enter grade">
+
+<br>
+
+<button onclick="checkGrade()">Check Result</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function checkGrade(){
+
+let grade = document.getElementById("grade").value;
+
+let result = document.getElementById("result");
+
+if(grade >= 75){
+result.innerHTML = "Bonggaa PASS ka";
+result.style.color="green";
+}
+else{
+result.innerHTML = "Law law FAIL ka";
+result.style.color="red";
+}
+
+}
+
+// Register Service Worker
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('service-worker.js');
+}
+
+</script>
+
+</body>
+</html>
